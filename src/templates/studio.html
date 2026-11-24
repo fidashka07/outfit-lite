@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build and preview a complete outfit on Outfit Lite.">
+  <title>Outfit Studio | Outfit Lite</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/studio.css') }}">
+  <script defer src="{{ url_for('static', filename='js/studio.js') }}"></script>
+</head>
+<body>
+  <main class="studio-shell">
+    <header class="page-heading">
+      <div>
+        <p class="eyebrow">OUTFIT LITE / PERSONAL STYLING</p>
+        <h1>Outfit Studio</h1>
+        <p class="intro">Put together a look, piece by piece.</p>
+      </div>
+      <a class="back-link" href="/">Back to home <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <div class="studio-layout">
+      <section class="board-panel" aria-labelledby="board-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">YOUR LOOK</p><h2 id="board-title">Outfit board</h2></div>
+          <span class="board-count" id="item-count">0 / 3 pieces</span>
+        </div>
+
+        <div class="flatlay-board" id="outfit-board" aria-label="Selected outfit flat-lay preview">
+          <div class="board-mark">OL<span>•</span></div>
+          <div class="flatlay-slot top-slot" data-slot="tops">
+            <div class="slot-content" id="slot-tops">
+              <div class="empty-slot"><span class="empty-plus">+</span><span>Choose a top</span></div>
+            </div>
+            <span class="slot-label">01 / TOP</span>
+          </div>
+          <div class="flatlay-slot bottom-slot" data-slot="bottoms">
+            <div class="slot-content" id="slot-bottoms">
+              <div class="empty-slot"><span class="empty-plus">+</span><span>Choose a bottom</span></div>
+            </div>
+            <span class="slot-label">02 / BOTTOM</span>
+          </div>
+          <div class="flatlay-slot shoes-slot" data-slot="shoes">
+            <div class="slot-content" id="slot-shoes">
+              <div class="empty-slot"><span class="empty-plus">+</span><span>Choose shoes</span></div>
+            </div>
+            <span class="slot-label">03 / SHOES</span>
+          </div>
+          <p class="board-caption">A little inspiration, styled by you.</p>
+        </div>
+
+        <div class="board-actions">
+          <button class="button button-quiet" id="reset-button" type="button">Reset</button>
+          <button class="button button-accent" id="random-button" type="button">✦ Random outfit</button>
+        </div>
+        <div class="summary-card">
+          <div><span class="summary-label">TOTAL OUTFIT PRICE</span><strong id="total-price" aria-live="polite">$0.00</strong></div>
+          <div class="size-summary"><span class="summary-label">YOUR SUGGESTED SIZE</span><strong id="size-badge" class="size-badge">—</strong></div>
+        </div>
+        <p class="disclaimer">Size suggestions are estimates based on the measurements entered and are not a guarantee of fit.</p>
+      </section>
+
+      <section class="picker-panel" aria-label="Outfit controls">
+        <div class="tabs" role="tablist" aria-label="Studio sections">
+          <button class="tab is-active" id="tab-measurements" role="tab" aria-selected="true" aria-controls="panel-measurements" data-tab="measurements">Measurements</button>
+          <button class="tab" id="tab-tops" role="tab" aria-selected="false" aria-controls="panel-products" data-tab="tops">Tops</button>
+          <button class="tab" id="tab-bottoms" role="tab" aria-selected="false" aria-controls="panel-products" data-tab="bottoms">Bottoms</button>
+          <button class="tab" id="tab-shoes" role="tab" aria-selected="false" aria-controls="panel-products" data-tab="shoes">Shoes</button>
+        </div>
+
+        <section class="tab-panel" id="panel-measurements" role="tabpanel" aria-labelledby="tab-measurements">
+          <div class="panel-heading"><p class="eyebrow">FIT PROFILE</p><h2>Your measurements</h2><p>Enter measurements in centimetres to get a size estimate.</p></div>
+          <div class="measurement-grid">
+            {% for key, label, min_value, max_value, default in [
+              ('height','Height',150,200,170),
+              ('chest','Chest',70,130,96),
+              ('waist','Waist',55,120,80),
+              ('hips','Hips',75,135,100)
+            ] %}
+            <div class="measurement-field">
+              <label for="{{ key }}-number">{{ label }} <span>(cm)</span></label>
+              <div class="input-pair">
+                <input id="{{ key }}-range" type="range" min="{{ min_value }}" max="{{ max_value }}" value="{{ default }}" data-measurement="{{ key }}" aria-label="{{ label }} slider">
+                <input id="{{ key }}-number" class="number-input" type="number" min="{{ min_value }}" max="{{ max_value }}" value="{{ default }}" data-measurement="{{ key }}" aria-label="{{ label }} in centimetres">
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="size-result" id="size-result" aria-live="polite">
+            <span class="result-icon">✦</span><div><strong>Recommended size: <span id="result-size">M</span></strong><p id="result-copy">Based on your chest, waist and hip measurements.</p></div>
+          </div>
+          <p class="chart-note">Our chart is a general guide. Individual garment sizing may vary.</p>
+        </section>
+
+        <section class="tab-panel products-panel" id="panel-products" role="tabpanel" aria-label="Choose products" hidden>
+          <div class="panel-heading"><p class="eyebrow" id="category-eyebrow">THE EDIT</p><h2 id="category-title">Choose a top</h2><p id="category-description">Select one piece to add it to your board.</p></div>
+          <div class="product-grid" id="product-grid"></div>
+        </section>
+      </section>
+    </div>
+    <footer class="studio-footer"><span>OUTFIT LITE</span><span>Find your own combination.</span></footer>
+  </main>
+
+  <script id="products-data" type="application/json">{{ products|tojson }}</script>
+</body>
+</html>

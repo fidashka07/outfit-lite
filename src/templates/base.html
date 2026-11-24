@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/studio.css') }}">
+    <title>{% block title %}Outfit Lite{% endblock %}</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/studio.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/" class="logo">outfit<span>lite.</span></a>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/products">Shop</a>
+        <a href="/studio">Studio</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>Outfit Lite © 2026 — Find your style.</p>
+</footer>
+
+</body>
+</html>
