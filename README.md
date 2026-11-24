@@ -19,6 +19,10 @@ and create outfits using a virtual avatar.
 - GitHub Actions
 - Render
 
+## Development Workflow
+
+The project uses feature branches and pull requests.
+
 ## Project Status
 
 Development in progress.
