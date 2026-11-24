@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} | Outfit Lite{% endblock %}
+
+{% block content %}
+
+<section class="detail-container">
+
+    <div class="detail-placeholder"
+         style="--item-color: {{ product.color|lower }}">
+        {{ product.category|upper }}
+    </div>
+
+    <div class="detail-info">
+        <p class="eyebrow">{{ product.category|upper }}</p>
+
+        <h1>{{ product.name }}</h1>
+
+        <p>Color: {{ product.color }}</p>
+
+        <h2>${{ "%.2f"|format(product.price) }}</h2>
+
+        <a href="/studio" class="btn">Create an Outfit</a>
+
+        <br><br>
+
+        <a href="/products">← Back to collection</a>
+    </div>
+
+</section>
+
+{% endblock %}

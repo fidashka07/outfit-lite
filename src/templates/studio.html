@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Studio | Outfit Lite{% endblock %}
+
+{% block content %}
+
+<section class="page-heading">
+    <p class="eyebrow">YOUR PERSONAL STUDIO</p>
+    <h1>Build your outfit.</h1>
+    <p>Choose your avatar and create a combination you love.</p>
+</section>
+
+<section class="studio-layout">
+
+    <div class="avatar-panel">
+
+        <h2>Your Avatar</h2>
+
+        <div class="avatar" id="avatar">
+
+            <div class="avatar-hair" id="avatarHair"></div>
+
+            <div class="avatar-head" id="avatarHead">
+                <div class="eyes">● &nbsp; ●</div>
+            </div>
+
+            <div class="avatar-body">
+
+                <div class="avatar-top" id="avatarTop"></div>
+
+                <div class="avatar-bottom" id="avatarBottom"></div>
+
+                <div class="avatar-shoes" id="avatarShoes"></div>
+
+            </div>
+
+        </div>
+
+        <h3>Skin tone</h3>
+
+        <div class="color-options">
+            <button class="skin-option" data-color="#f1c7a5"
+                    style="background:#f1c7a5"></button>
+
+            <button class="skin-option" data-color="#c98c65"
+                    style="background:#c98c65"></button>
+
+            <button class="skin-option" data-color="#8d573d"
+                    style="background:#8d573d"></button>
+        </div>
+
+        <h3>Hair color</h3>
+
+        <div class="color-options">
+            <button class="hair-option" data-color="#24180f"
+                    style="background:#24180f"></button>
+
+            <button class="hair-option" data-color="#754c24"
+                    style="background:#754c24"></button>
+
+            <button class="hair-option" data-color="#d5a34c"
+                    style="background:#d5a34c"></button>
+        </div>
+
+    </div>
+
+    <div class="selection-panel">
+
+        <h2>Select your clothes</h2>
+
+        {% for category in ["tops", "bottoms", "shoes"] %}
+
+        <div class="selection-group">
+
+            <h3>{{ category|title }}</h3>
+
+            <div class="selection-items">
+
+                {% for product in products %}
+
+                    {% if product.category == category %}
+
+                    <button class="item-button"
+                            data-id="{{ product.id }}"
+                            data-category="{{ product.category }}"
+                            data-color="{{ product.color|lower }}">
+
+                        {{ product.name }}
+
+                        <span>
+                            ${{ "%.2f"|format(product.price) }}
+                        </span>
+
+                    </button>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        <div class="total-box">
+            <p>Total outfit price</p>
+            <h2 id="totalPrice">$0.00</h2>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/studio.js') }}"></script>
+
+{% endblock %}

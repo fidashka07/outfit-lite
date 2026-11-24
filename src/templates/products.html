@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Shop | Outfit Lite{% endblock %}
+
+{% block content %}
+
+<section class="page-heading">
+    <p class="eyebrow">OUR COLLECTION</p>
+    <h1>Find your next favorite.</h1>
+    <p>Explore our collection and discover your style.</p>
+</section>
+
+<div class="filters">
+    <a href="/products"
+       class="filter {% if not selected_category %}active{% endif %}">
+       All
+    </a>
+
+    <a href="/products?category=tops"
+       class="filter {% if selected_category == 'tops' %}active{% endif %}">
+       Tops
+    </a>
+
+    <a href="/products?category=bottoms"
+       class="filter {% if selected_category == 'bottoms' %}active{% endif %}">
+       Bottoms
+    </a>
+
+    <a href="/products?category=shoes"
+       class="filter {% if selected_category == 'shoes' %}active{% endif %}">
+       Shoes
+    </a>
+</div>
+
+<section class="product-grid">
+
+    {% for product in products %}
+
+    <article class="product-card">
+
+        <div class="product-placeholder"
+             style="--item-color: {{ product.color|lower }}">
+            <span>{{ product.category|upper }}</span>
+        </div>
+
+        <div class="product-info">
+            <div>
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.color }} · {{ product.category }}</p>
+            </div>
+
+            <strong>${{ "%.2f"|format(product.price) }}</strong>
+        </div>
+
+        <a href="/products/{{ product.id }}" class="card-link">
+            View details →
+        </a>
+
+    </article>
+
+    {% else %}
+
+    <p>No products found in this category.</p>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}
