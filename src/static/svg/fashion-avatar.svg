@@ -1,0 +1,119 @@
+<svg class="avatar-svg" id="fashion-avatar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 900" role="img" aria-label="Semi-realistic fashion avatar">
+<defs>
+  <linearGradient id="skinBase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--skin-light)"/><stop offset=".48" stop-color="var(--skin)"/><stop offset="1" stop-color="var(--skin-shadow)"/></linearGradient>
+  <linearGradient id="skinArm" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="var(--skin-light)"/><stop offset=".55" stop-color="var(--skin)"/><stop offset="1" stop-color="var(--skin-shadow)"/></linearGradient>
+  <linearGradient id="hairGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--hair-highlight)"/><stop offset=".42" stop-color="var(--hair)"/><stop offset="1" stop-color="var(--hair-shadow)"/></linearGradient>
+  <linearGradient id="fabricGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--cloth-light)"/><stop offset=".5" stop-color="var(--cloth)"/><stop offset="1" stop-color="var(--cloth-shadow)"/></linearGradient>
+  <linearGradient id="pantsGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="var(--bottom-light)"/><stop offset=".5" stop-color="var(--bottom)"/><stop offset="1" stop-color="var(--bottom-shadow)"/></linearGradient>
+  <radialGradient id="faceGlow" cx=".35" cy=".22" r=".8"><stop stop-color="var(--skin-light)" stop-opacity=".72"/><stop offset="1" stop-color="var(--skin)" stop-opacity="0"/></radialGradient>
+  <linearGradient id="shoeGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="var(--shoe-light)"/><stop offset="1" stop-color="var(--shoe)"/></linearGradient>
+  <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="clothShadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#39291f" flood-opacity=".14"/></filter>
+</defs>
+<style>
+#fashion-avatar { --skin:#d39b79; --skin-light:#f0c8a8; --skin-shadow:#a96f55; --hair:#30221f; --hair-light:#6b4939; --hair-shadow:#1c1514; --cloth:#a6b1b8; --cloth-light:#dce1e3; --cloth-shadow:#65747f; --bottom:#343c4b; --bottom-light:#657286; --bottom-shadow:#202735; --shoe:#f2eee8; --shoe-light:#fff; }
+#body,#head,#hair-back,#hair-front,#eyes,#brows,#lips,#arms,#legs,#shoes,#top,#bottom,#outerwear { transition:opacity .22s ease, transform .22s ease; }
+#top,#bottom,#outerwear,#shoes { transform-box:fill-box; transform-origin:center; }
+.garment-seam { fill:none; stroke:#ffffff; stroke-opacity:.46; stroke-width:1.7; stroke-linecap:round; }
+.garment-fold { fill:none; stroke:#342a25; stroke-opacity:.18; stroke-width:3; stroke-linecap:round; }
+</style>
+<!-- Ground shadow -->
+<ellipse cx="202" cy="858" rx="94" ry="15" fill="#5a493c" opacity=".13" filter="url(#softShadow)"/>
+<!-- Hair behind body -->
+<g id="hair-back">
+ <path d="M133 130 C116 77 151 35 205 37 C267 35 293 78 276 151 L292 286 C300 344 280 397 260 421 L139 414 C119 372 105 318 116 264 Z" fill="url(#hairGrad)"/>
+ <path d="M133 160 C126 245 142 336 154 392" fill="none" stroke="var(--hair-light)" stroke-width="5" opacity=".55"/>
+ <path d="M264 130 C276 226 266 335 249 395" fill="none" stroke="var(--hair-shadow)" stroke-width="5" opacity=".38"/>
+</g>
+<!-- Legs, relaxed asymmetric pose -->
+<g id="legs">
+ <path d="M157 563 C153 622 153 691 146 751 L135 822 C133 837 143 844 159 843 L177 838 C183 835 181 822 180 807 L190 690 L203 575 Z" fill="url(#skinBase)"/>
+ <path d="M218 566 C228 625 235 689 241 746 L254 815 C258 832 270 838 283 831 L294 824 C299 819 291 805 286 789 L270 681 L263 568 Z" fill="url(#skinBase)"/>
+ <path d="M153 688 C158 730 153 780 146 815" fill="none" stroke="var(--skin-shadow)" stroke-width="4" opacity=".22"/>
+ <path d="M249 700 C259 744 271 785 281 809" fill="none" stroke="var(--skin-shadow)" stroke-width="4" opacity=".22"/>
+ <path d="M180 590 C181 655 173 714 168 750" fill="none" stroke="#fff" stroke-width="3" opacity=".18"/>
+ <path d="M222 596 C234 665 242 711 250 751" fill="none" stroke="#fff" stroke-width="3" opacity=".16"/>
+</g>
+<!-- Neck -->
+<path d="M177 161 L174 211 C181 231 221 234 231 208 L222 157 Z" fill="url(#skinBase)"/>
+<path d="M174 193 C187 213 215 216 229 192 L230 217 C215 241 180 233 173 214 Z" fill="var(--skin-shadow)" opacity=".22"/>
+<!-- Body base -->
+<g id="body">
+ <path d="M169 207 C151 212 139 228 133 252 L119 361 C133 391 160 405 199 406 C240 406 269 390 282 361 L267 252 C260 227 247 212 229 207 L214 224 L185 224 Z" fill="url(#skinBase)"/>
+ <path d="M165 220 C176 233 186 240 199 241 C213 240 226 231 234 219" fill="none" stroke="var(--skin-shadow)" stroke-width="4" opacity=".2"/>
+</g>
+<!-- Arms with hands, natural asymmetry -->
+<g id="arms">
+ <path d="M143 230 C126 239 119 259 115 288 L101 390 C98 411 103 431 111 448 C116 458 127 458 132 447 C136 437 130 424 131 411 L151 314 C160 278 163 247 143 230 Z" fill="url(#skinArm)"/>
+ <path d="M255 230 C274 239 282 258 286 286 L301 383 C305 406 300 429 290 445 C283 457 272 454 269 443 C266 431 273 416 269 401 L248 309 C240 273 238 246 255 230 Z" fill="url(#skinArm)"/>
+ <path d="M108 438 C101 448 100 464 105 478 C108 487 116 489 121 480 L128 462 C132 450 124 440 118 436 Z" fill="url(#skinBase)"/>
+ <path d="M274 437 C269 450 271 466 278 480 C283 489 292 485 294 476 L296 456 C296 445 287 438 281 434 Z" fill="url(#skinBase)"/>
+ <path d="M119 269 C124 252 132 244 142 241" fill="none" stroke="#fff" stroke-width="4" opacity=".2"/>
+ <path d="M281 267 C276 251 267 244 258 241" fill="none" stroke="#fff" stroke-width="4" opacity=".2"/>
+</g>
+<!-- Face and ears -->
+<g id="head">
+ <path d="M143 105 C143 61 169 43 202 43 C239 43 259 69 258 111 L252 157 C247 195 226 219 201 220 C176 219 154 195 149 158 Z" fill="url(#skinBase)"/>
+ <path d="M147 137 C137 129 132 140 139 157 C143 167 149 169 153 162 Z" fill="url(#skinBase)"/>
+ <path d="M253 137 C264 129 270 141 263 157 C259 167 253 169 249 162 Z" fill="url(#skinBase)"/>
+ <path d="M150 113 C154 83 176 61 202 60 C230 59 249 83 253 116 C246 89 232 82 215 80 C191 94 174 99 150 113 Z" fill="url(#faceGlow)" opacity=".8"/>
+ <path d="M200 121 C194 139 191 151 198 156 C202 159 207 157 211 154" fill="none" stroke="var(--skin-shadow)" stroke-width="2.3" opacity=".5"/>
+ <path d="M191 159 C197 163 205 163 211 158" fill="none" stroke="#8e554d" stroke-width="1.8" opacity=".6"/>
+ <path d="M181 184 C192 193 211 194 222 182 C215 202 193 207 181 184 Z" fill="#a95e63"/>
+ <path d="M190 185 C198 188 207 188 215 184" fill="none" stroke="#f4c4b5" stroke-width="2" opacity=".75"/>
+ <path d="M158 139 C153 146 154 156 161 160" fill="none" stroke="var(--skin-shadow)" stroke-width="2" opacity=".35"/>
+ <path d="M244 139 C249 146 248 156 241 160" fill="none" stroke="var(--skin-shadow)" stroke-width="2" opacity=".35"/>
+</g>
+<g id="brows" fill="none" stroke="#49352e" stroke-width="4" stroke-linecap="round">
+ <path d="M164 119 Q177 110 190 117"/><path d="M211 117 Q225 109 239 119"/>
+</g>
+<g id="eyes">
+ <path d="M161 133 Q176 121 192 133 Q177 148 161 133Z" fill="#fffaf4"/>
+ <path d="M208 133 Q224 121 240 133 Q224 148 208 133Z" fill="#fffaf4"/>
+ <ellipse cx="178" cy="134" rx="6.5" ry="8" fill="#6b5142"/><ellipse cx="224" cy="134" rx="6.5" ry="8" fill="#6b5142"/>
+ <ellipse cx="179" cy="134" rx="3.2" ry="5" fill="#211d1b"/><ellipse cx="225" cy="134" rx="3.2" ry="5" fill="#211d1b"/>
+ <circle cx="181" cy="131" r="2" fill="#fff"/><circle cx="227" cy="131" r="2" fill="#fff"/>
+ <path d="M160 133 Q176 119 193 132 M207 132 Q224 119 241 133" fill="none" stroke="#46332d" stroke-width="2.2"/>
+</g>
+<g id="lips"/>
+<!-- Hair front: base style; JS swaps path geometry for other styles -->
+<g id="hair-front">
+ <path id="hair-cap" d="M143 119 C134 65 163 35 204 37 C249 37 269 70 258 124 C248 98 235 85 216 78 C193 91 170 103 143 119Z" fill="url(#hairGrad)"/>
+ <path d="M151 94 C166 65 186 53 209 52" fill="none" stroke="var(--hair-light)" stroke-width="4" opacity=".55"/>
+ <path d="M239 64 C252 79 257 96 255 116" fill="none" stroke="var(--hair-shadow)" stroke-width="3" opacity=".45"/>
+ <path d="M144 113 C137 164 144 203 153 238" fill="none" stroke="url(#hairGrad)" stroke-width="15" stroke-linecap="round"/>
+ <path d="M254 111 C262 157 257 197 247 235" fill="none" stroke="url(#hairGrad)" stroke-width="15" stroke-linecap="round"/>
+</g>
+<!-- Shoes -->
+<g id="shoes">
+ <path d="M137 813 C147 820 165 820 179 813 L188 836 C191 846 183 853 169 854 L119 854 C110 850 116 839 124 832 Z" fill="url(#shoeGrad)" stroke="var(--shoe-shadow,#c7beb4)" stroke-width="1.5"/>
+ <path d="M254 810 C265 816 282 814 292 806 L309 833 C317 843 310 852 297 854 L252 854 C240 850 244 838 249 829 Z" fill="url(#shoeGrad)" stroke="var(--shoe-shadow,#c7beb4)" stroke-width="1.5"/>
+ <path d="M124 842 Q151 850 184 841 M250 841 Q280 849 312 839" fill="none" stroke="#8c8176" stroke-width="2" opacity=".5"/>
+</g>
+<!-- Bottom garment: tailored high-waist trousers -->
+<g id="bottom" class="garment-layer">
+ <path d="M132 382 C151 394 174 399 200 399 C227 399 252 393 269 382 L267 470 C265 523 260 574 264 624 L281 761 C264 775 244 778 226 770 L202 592 L183 770 C165 780 143 775 128 762 L147 617 C151 563 143 517 138 470 Z" fill="url(#pantsGrad)" filter="url(#clothShadow)"/>
+ <path d="M132 399 Q200 415 268 399" fill="none" stroke="var(--bottom-shadow)" stroke-width="3" opacity=".55"/>
+ <path d="M164 408 L174 432 L167 454 M236 408 L225 433 L231 454" class="garment-fold"/>
+ <path d="M200 411 L200 454" fill="none" stroke="var(--bottom-shadow)" stroke-width="2" opacity=".5"/>
+ <path d="M151 467 C158 533 159 574 151 615 M250 466 C242 531 245 575 254 615" class="garment-fold"/>
+ <path d="M183 487 L177 563 M219 487 L224 563" class="garment-seam"/>
+ <path d="M135 755 Q153 764 178 759 M229 759 Q254 766 278 753" class="garment-seam"/>
+</g>
+<!-- Top garment: fitted blouse with collar, sleeve shaping and folds -->
+<g id="top" class="garment-layer">
+ <path d="M166 218 C151 220 139 231 132 250 L113 310 C124 326 140 333 155 330 L164 285 L157 390 C184 402 222 403 246 390 L239 285 L248 330 C265 333 279 324 289 309 L268 249 C260 231 247 220 231 217 L216 231 L184 231 Z" fill="url(#fabricGrad)" filter="url(#clothShadow)"/>
+ <path d="M184 225 L200 246 L216 225 L228 218 L218 262 L200 275 L182 262 L172 218 Z" fill="var(--cloth-shadow)" opacity=".35"/>
+ <path d="M182 231 L200 250 L218 231" fill="none" stroke="var(--cloth-light)" stroke-width="3"/>
+ <path d="M200 275 L200 391" class="garment-seam"/>
+ <path d="M151 263 C160 279 163 302 158 327 M249 263 C239 282 237 303 242 328" class="garment-seam"/>
+ <path d="M171 298 Q183 310 181 332 M227 298 Q215 310 218 333 M171 359 Q184 351 190 363 M228 359 Q216 351 210 363" class="garment-fold"/>
+ <path d="M132 310 Q145 320 155 318 M267 318 Q278 319 287 309" fill="none" stroke="var(--cloth-shadow)" stroke-width="2" opacity=".45"/>
+ <path d="M157 387 Q200 399 246 387" fill="none" stroke="var(--cloth-shadow)" stroke-width="2" opacity=".55"/>
+</g>
+<!-- Outerwear placeholder layer remains hidden until selected -->
+<g id="outerwear" class="garment-layer" style="display:none">
+ <path d="M164 219 L181 226 L200 248 L219 226 L236 219 C255 227 265 246 272 270 L260 397 L204 405 L200 265 L195 405 L140 397 L128 270 C135 245 146 227 164 219Z" fill="var(--outerwear,var(--cloth))" opacity=".96" filter="url(#clothShadow)"/>
+ <path d="M200 250 L200 402 M182 230 L195 267 M218 230 L205 267" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/>
+</g>
+</svg>

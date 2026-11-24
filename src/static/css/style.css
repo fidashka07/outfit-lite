@@ -476,3 +476,242 @@ footer {
         height: 280px;
     }
 }
+/* ===== PROFESSIONAL OUTFIT STUDIO ===== */
+
+.studio-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 24px;
+}
+
+.studio-heading {
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    color: #a17b62;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.studio-heading h1 {
+    font-size: 42px;
+    margin: 12px 0;
+    color: #292522;
+}
+
+.studio-heading p {
+    color: #89817b;
+}
+
+.studio-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.avatar-panel {
+    background: #f4f0eb;
+    border-radius: 20px;
+    padding: 25px;
+    position: sticky;
+    top: 25px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #756b63;
+}
+
+.live-dot {
+    color: #6b9875;
+}
+
+.avatar-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 520px;
+    background: linear-gradient(145deg, #eee7df, #faf8f5);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+#avatar {
+    height: 500px;
+    max-width: 100%;
+}
+
+.avatar-caption {
+    text-align: center;
+    margin-top: 18px;
+    color: #8c8076;
+    font-size: 13px;
+}
+
+.customization-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.custom-section {
+    background: white;
+    border: 1px solid #eee9e4;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.custom-section h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.custom-section > p {
+    color: #8b8580;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.clothing-category {
+    margin-top: 22px;
+}
+
+.clothing-category h3,
+.custom-section h3 {
+    font-size: 13px;
+    color: #766a61;
+    margin-bottom: 12px;
+}
+
+.clothing-options {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.clothing-option {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    padding: 12px;
+    background: #faf9f7;
+    border: 1px solid #eeeae5;
+    border-radius: 11px;
+    text-align: left;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.clothing-option:hover {
+    border-color: #ad8b72;
+    transform: translateY(-2px);
+}
+
+.clothing-option.selected {
+    border: 2px solid #a17b62;
+    background: #f6f0ea;
+}
+
+.option-color {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.option-info strong {
+    font-size: 13px;
+    color: #39332e;
+}
+
+.option-info small {
+    color: #998b80;
+}
+
+.color-options {
+    display: flex;
+    gap: 13px;
+    margin: 12px 0 24px;
+}
+
+.skin-choice,
+.hair-choice {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 3px solid white;
+    outline: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.skin-choice.active,
+.hair-choice.active {
+    outline: 2px solid #a17b62;
+}
+
+.outfit-summary {
+    background: #302923;
+    color: white;
+    padding: 23px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.outfit-summary div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.outfit-summary span {
+    font-size: 12px;
+    color: #c7bdb3;
+}
+
+.outfit-summary strong {
+    font-size: 25px;
+}
+
+.clear-button {
+    background: transparent;
+    border: 1px solid #8b8178;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background: #51463c;
+}
+
+@media (max-width: 800px) {
+    .studio-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-panel {
+        position: static;
+    }
+
+    .studio-heading h1 {
+        font-size: 32px;
+    }
+}
